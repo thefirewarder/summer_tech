@@ -65,6 +65,3 @@ while running:
                 turn ="y"
                 print("Yellow wins!")
                running=False
-        
-    
-
