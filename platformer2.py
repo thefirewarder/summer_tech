@@ -1,5 +1,6 @@
 import pygame
 import sys
+import random
 
 pygame.init()
 
@@ -18,7 +19,7 @@ SCROLL_TRIGGER_X = 500
 GRAVITY = 0.5
 JUMP_STRENGTH = -10
 MOVE_SPEED = 5
-
+bush_color = (220,255,220)
 offset_enemy = 0
 enemy_world_x = 1400
 enemy_y = HEIGHT - 60
@@ -26,11 +27,13 @@ enemy_radius = 20
 enemy_alive = True
 
 ground_rects = [pygame.Rect(x * 200, HEIGHT - 50, 200, 50) for x in range(20)]
-
 while True:
     offset_enemy += 1.5
     screen.fill((135, 206, 235))
-
+    for i in range(1,10,2):
+        pygame.draw.rect(screen, bush_color, pygame.Rect(1400*i - scroll_distance, 550, 300, 200))
+    for i in range(2,11,2):
+        pygame.draw.rect(screen, bush_color, pygame.Rect(1400*i - scroll_distance, 650, 100, 100))
     keys = pygame.key.get_pressed()
     if keys[pygame.K_a] and player.x > 0:
         player.x -= MOVE_SPEED
@@ -51,7 +54,7 @@ while True:
             player.bottom = ground_rect.top
             player_vel_y = 0
             on_ground = True
-
+   
     if player.x > SCROLL_TRIGGER_X:
         player.x = SCROLL_TRIGGER_X
         scroll_distance += MOVE_SPEED
@@ -63,8 +66,8 @@ while True:
     pygame.draw.rect(screen, (255, 0, 0), player)
 
     enemy_x = enemy_world_x - scroll_distance - offset_enemy
-    enemy_rect = pygame.Rect(enemy_x - enemy_radius, enemy_y - enemy_radius, enemy_radius * 2, enemy_radius * 2)
-
+    enemy_rect = pygame.image.load("/Users/benmcintosh/Documents/eye.png").convert()
+    screen.blit(enemy_rect,(enemy_x,enemy_y))
     if enemy_alive:
         pygame.draw.circle(screen, (0, 0, 255), (int(enemy_x), enemy_y), enemy_radius)
 
