@@ -1,0 +1,41 @@
+<body>
+<h1>Something Clicker</h1>
+<h2 id="clickBoard">Clicks: 0</h2>
+<button id="clickme">Click me</button>
+<select id="shop">"
+<option value="chicken nugget" onclick = "shopHandler(chickenNugget)">Chicken nugget | 10 SomeCoins | +1 click at once</option>
+</select>
+<style>
+h1,h2{
+    text-align: center;
+}
+button,select{
+    position: absolute;
+    left: 46%;
+    width: 150px;
+    height: 30px;
+}
+button:hover{
+    background-color: black;
+    color: white;
+}
+</style>
+<script>
+let cost = 10
+const shop = document.querySelector("#shop")
+let clicks = 0
+const clickBoard = document.querySelector("#clickBoard")
+const button = document.querySelector('#clickme')
+button.addEventListener("click",clickHandler,false)
+function clickHandler(){
+    clicks++
+    clickBoard.innerHTML="Clicks: "+clicks
+}
+function shopHandler(item){
+    if(item === chickenNugget){
+        clicks -= 10
+        clickBoard.innerHTML="Clicks: "+clicks
+    }
+}
+</script>
+</body>
