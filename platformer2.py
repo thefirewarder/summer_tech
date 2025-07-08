@@ -66,7 +66,7 @@ while True:
     pygame.draw.rect(screen, (255, 0, 0), player)
 
     enemy_x = enemy_world_x - scroll_distance - offset_enemy
-    enemy_rect = pygame.image.load("/Users/benmcintosh/Documents/eye.png").convert()
+    enemy_rect = pygame.image.load("").convert()
     screen.blit(enemy_rect,(enemy_x,enemy_y))
     if enemy_alive:
         pygame.draw.circle(screen, (0, 0, 255), (int(enemy_x), enemy_y), enemy_radius)
