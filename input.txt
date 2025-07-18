@@ -1,1 +1,3 @@
-out Hello-World!
+let x = 5~~
+say x-equals~
+parse x~~
