@@ -204,3 +204,6 @@ while(running):
         else:
             print("You and the bot tied at ",hand_value," and the dealer always wins ties, so the bot wins the hand!")
             b_balance += bet * 2
+        if p_balance <= 0:
+            print("You lost while all in, so you lost completely! Better luck next time!")
+            running = False
